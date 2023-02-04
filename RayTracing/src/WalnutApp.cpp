@@ -15,16 +15,16 @@ public:
 	{
 		ImGui::Begin("Settings");
 		ImGui::Text("Last render: %.3f", m_LastRenderTime);
-		if (ImGui::Button("Render")) {
-			Render();
-		}
+		//if (ImGui::Button("Render")) {
+		//	Render();
+		//}
 		ImGui::End();
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2( 0.0f, 0.0f ));
 		ImGui::Begin("Viewport");
 
-		m_ViewportWidth = ImGui::GetContentRegionAvail().x;
-		m_ViewportHeight = ImGui::GetContentRegionAvail().y;
+		m_ViewportWidth = (uint32_t)ImGui::GetContentRegionAvail().x;
+		m_ViewportHeight = (uint32_t)ImGui::GetContentRegionAvail().y;
 
 		auto image = m_Renderer.GetFinalImage();
 		if (image)
